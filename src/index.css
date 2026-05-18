@@ -1,0 +1,273 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS DE COR (Tema Cinema Dark)
+   ========================================================================== */
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Cores principais */
+  --bg-principal: #0b0f19;       /* Azul escuro profundo quase preto */
+  --bg-card: #151c2c;            /* Fundo dos cartões e formulários */
+  --bg-nav: #111827;             /* Fundo do menu superior */
+  --texto-principal: #f3f4f6;    /* Branco fosco macio para leitura */
+  --texto-secundario: #9ca3af;   /* Cinza claro para rótulos e ids */
+  
+  /* Cores de Destaque */
+  --cor-primaria: #38bdf8;        /* Azul Neon para links e botões principais */
+  --cor-primaria-hover: #0ea5e9;  /* Azul um pouco mais escuro para o hover */
+  --cor-perigo: #f43f5e;          /* Rosa/Vermelho para ações de apagar */
+  --cor-perigo-hover: #e11d48;    /* Vermelho hover */
+  --cor-borda: #1f293d;           /* Cor das divisórias e bordas discretas */
+  
+  color-scheme: dark;
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-principal);
+}
+
+/* Container de conteúdo que envelopa as páginas */
+#root {
+  width: 100%;
+}
+
+h1, h2, h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  background: linear-gradient(to right, var(--cor-primaria), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1rem;
+}
+
+p {
+  color: var(--texto-secundario);
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGAÇÃO (Menu Superior)
+   ========================================================================== */
+nav {
+  background-color: var(--bg-nav);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 1rem 2rem !important;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+nav a {
+  color: var(--texto-secundario) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: var(--cor-primaria) !important;
+  background-color: rgba(56, 189, 248, 0.08);
+}
+
+/* Estilo para simular o link ativo */
+nav a:focus, nav a:active {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   PÁGINA INÍCIO (Lista de Filmes em Grade/Cards)
+   ========================================================================== */
+ul {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  ul {
+    grid-template-columns: 1fr 1fr; /* Vira duas colunas em telas médias */
+  }
+}
+
+ul li {
+  background-color: var(--bg-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+ul li:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(56, 189, 248, 0.1);
+}
+
+/* ==========================================================================
+   FORMULÁRIOS E CAMPOS DE ENTRADA (Criar, Alterar, Buscar)
+   ========================================================================== */
+form, div[style*="max-width"] {
+  background-color: var(--bg-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  padding: 2rem !important;
+  max-width: 480px !important;
+  margin: 2rem auto !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  color: var(--texto-principal);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+input[type="text"],
+input[type="number"],
+input {
+  background-color: var(--bg-principal);
+  border: 1px solid var(--cor-borda);
+  color: #ffffff;
+  padding: 0.75rem 1rem !important;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 0.5rem !important;
+  width: 100% !important;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+input::placeholder {
+  color: #4b5563;
+}
+
+/* ==========================================================================
+   BOTÕES (Ações, Cancelar, Excluir)
+   ========================================================================== */
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botão Primário (Criar, Altera, Procura, Ler) */
+button:not([style*="background-color"]):not([type="button"]):not([onClick*="navigate('/')"]) {
+  background-color: var(--cor-primaria);
+  color: #0b0f19;
+}
+
+button:not([style*="background-color"]):not([type="button"]):not([onClick*="navigate('/')"]):hover {
+  background-color: var(--cor-primaria-hover);
+  transform: translateY(-1px);
+}
+
+/* Botão Cancelar / Voltar */
+button[type="button"], 
+button[onClick*="navigate('/')"],
+form button + button {
+  background-color: #1f2937 !important;
+  color: var(--texto-principal) !important;
+  border: 1px solid var(--cor-borda) !important;
+}
+
+button[type="button"]:hover, 
+button[onClick*="navigate('/')"]:hover,
+form button + button:hover {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+/* Botão Especial de Apagar (Vermelho/Rosa) */
+button[style*="background-color: '#ff4d4d'"], 
+button[style*="background-color: red"],
+div[style*="color: 'red'"] + div button:first-child {
+  background-color: var(--cor-perigo) !important;
+  color: #ffffff !important;
+}
+
+button[style*="background-color: '#ff4d4d'"]:hover, 
+button[style*="background-color: red"]:hover,
+div[style*="color: 'red'"] + div button:first-child:hover {
+  background-color: var(--cor-perigo-hover) !important;
+}
+
+/* Agrupamento de botões lado a lado */
+div[style*="display: 'flex'"] {
+  gap: 12px !important;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   ALERTAS E DETALHES DE LEITURA
+   ========================================================================== */
+/* Caixas de ficha técnica e erros de renderização condicional */
+div:has(> h2), div[style*="text-align: 'left'"] {
+  text-align: center;
+}
+
+div[style*="text-align: 'left'"] p {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1f293d;
+  display: flex;
+  justify-content: space-between;
+}
+
+div[style*="text-align: 'left'"] p strong {
+  color: var(--cor-primaria);
+}
+
+/* Mensagens de filme não encontrado */
+h2 {
+  color: var(--cor-perigo);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
