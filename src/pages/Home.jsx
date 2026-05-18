@@ -18,8 +18,8 @@ export default function Inicio() {
         {filmes.map(filme => (
           <li key={filme.id} style={{ marginBottom: '10px' }}>
             ID: {filme.id} | Nome: {filme.nome}
-            <Link to={`/ler/${filme.id}`} style={{ marginLeft: '10px' }}>
-              <button>Ler</button>
+            <Link to={`/Read/${filme.id}`} style={{ marginLeft: '10px' }}>
+                <button>Ler</button>
             </Link>
           </li>
         ))}
